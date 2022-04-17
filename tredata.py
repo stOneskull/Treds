@@ -15,7 +15,7 @@ def female_name():
 
 def horse_name():
     from horsenames import namelist
-    return choice(namelist().rstrip())
+    return choice(namelist()).rstrip()
 
 
 def choose_name(namelist='both'):
