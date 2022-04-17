@@ -1,5 +1,5 @@
 from threading import Thread
-
+from time import sleep
 
 class Tred(Thread):
     # override the run function
