@@ -1,16 +1,9 @@
 from time import sleep
-from threading import Thread
+
+from tred import Tred
 
 
 Heart = True
-
-
-class Tred(Thread):
-    # override the run function
-    def run(self):
-        self.value = 23
-        sleep(2)
-        print('..This is coming from thread', self)
 
 
 def bye():
