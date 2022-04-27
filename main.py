@@ -17,8 +17,11 @@ def namer(namelist='both'):
     import tredata
     return tredata.choose_name(namelist)
 
+def dresser():
+    pass
 
-def tred():
+
+def testing():
     print("tred..")
     thread = Tred(target=lambda: sleep(3), name='Treddy')
     thread.name = namer('male')
@@ -38,7 +41,7 @@ def tred():
 def main():
     print("main..")
 
-    return tred
+    return testing
 
 
 def wonderwall(ball):

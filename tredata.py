@@ -4,18 +4,19 @@ from random import choice
 def male_name():
     with open('male', 'r') as names:
         namelist = names.readlines()[7:]
-    return choice(namelist).rstrip()
+    return choice(namelist).strip()
 
 
 def female_name():
     with open('female', 'r') as names:
         namelist = names.readlines()[7:]
-    return choice(namelist).rstrip()
+    return choice(namelist).strip()
 
 
 def horse_name():
-    from horsenames import namelist
-    return choice(namelist()).rstrip()
+    with open('horse', 'r') as names:
+        namelist = names.readlines()
+    return choice(namelist).rstrip()
 
 
 def choose_name(namelist='both'):
