@@ -7,7 +7,7 @@ sounds = [
     if sound.endswith('.wav')
 ]
 
-print(sounds)
+#print(sounds)
 
 #pygame.init()
 pygame.mixer.init(48000, -16, 1, 1024)
@@ -20,12 +20,17 @@ pause = pygame.time.wait
     #cue.play()
     #pause(int(cue.get_length()) * 1000)
 
-for times in range(4):
-    sound = random.choice(sounds)
-    cue = load(sound)
-    print(sound)
-    delay = int(cue.get_length()) * 1000 + 222
-    cue.play()
-    pause(delay)
+def random4():
+    for times in range(4):
+        sound = random.choice(sounds)
+        cue = load(sound)
+        print(sound)
+        delay = int(cue.get_length()) * 1000 + 222
+        cue.play()
+        pause(delay)
+
+if __name__ == '__main__':
+    random4()
+
 
 

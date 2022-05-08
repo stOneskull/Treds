@@ -42,7 +42,7 @@ def game_over():
                         ''')
 
     if 'q' in decision.lower():
-        Heart = False
+        Heart = None
 
     print(); sh(1); print(); sh(2)
 
@@ -89,7 +89,6 @@ def save_game():
     return options
 
 
-
 def load_game():
     global u
 
@@ -128,6 +127,34 @@ def load_game():
 
     return menu
 
+def options():
+    clr()
+    print("""
+    0 - Status
+    1 - Resume Game
+    4 - Save Game
+    6 - Load Game
+    8 - Quit Game
+    """)
+
+    options_map = {
+        '0': status,
+        '1': menu,
+        '4': save_game,
+        '6': load_game,
+        '8': game_over,
+    }
+
+    while True:
+        go = input('? ').strip()
+        if go in options_map:
+            return options_map[go]
+
+
+def status():
+    clr()
+    print(u.name)
+
 
 def menu():
     print("""
@@ -135,7 +162,7 @@ def menu():
 
     """)
     sh(3)
-    sayit = input('mmhmm..')
+    sayit = input('mmhmm.. ')
     print('indeed, ' + sayit)
     sh(3)
     return calc(sayit)
@@ -154,6 +181,7 @@ def calc(words):
 
 
 def new_game():
+    global u
     name = input('your name? ').strip()
     u = Player(name)
     return intro
@@ -201,6 +229,7 @@ def main(game='load'):
 
 def wonderwall(egg):
     while Heart is True:
+        print(egg)
         egg = egg()
 
 
