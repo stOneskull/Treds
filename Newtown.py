@@ -3,9 +3,11 @@
 stOneskull"""
 
 
-import pickle, queue, threading, time
-from random import randint as d, choice
+import pickle, time
+from random import choice
+
 from player import Player
+from god import God
 
 
 Heart = True
@@ -50,15 +52,15 @@ def game_over():
 
 
 def put(data, filename):
-    '''pickle save data'''
+    """pickle save data"""
 
     with open(filename, 'wb') as jar:
         pickle.dump(data, jar)
 
 
 def get(filename):
-    ''' return the pickled data
-    or return 'nofile' '''
+    """ return the pickled data
+    or return 'nofile' """
 
     try:
         with open(filename, 'rb') as jar:
@@ -157,6 +159,7 @@ def status():
 
 
 def menu():
+    print('room', u.god.rooms[u.god.eye])
     print("""
     0
 
@@ -166,13 +169,21 @@ def menu():
     print('indeed, ' + sayit)
     sh(3)
 
-    print('room', u.god.)
+    print('room', u.god.rooms[u.god.eye])
+    sh(1)
+    return step
 
     #return calc(sayit)
 
 
 def step():
     clr()
+    print('step.. ')
+    sh(2)
+    u.god.eye += 1
+    u.god.eye %= 40
+    print('god eye:', u.god.eye)
+    return menu
 
 
 def calc(words):
@@ -191,6 +202,7 @@ def new_game():
     global u
     name = input('your name? ').strip()
     u = Player(name)
+    u.god = God()
     return intro
 
 
@@ -239,5 +251,5 @@ def wonderwall(egg):
         print(egg)
         egg = egg()
 
-
-wonderwall(main)
+if __name__ == '__main__':
+    wonderwall(main)
