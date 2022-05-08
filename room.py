@@ -1,11 +1,12 @@
 class Room:
-    rooms = {room:None for room in range(40)}
-    pointer = 0
 
-    def __init__(self, num, details):
-        Room.rooms[num] = self
-        paint(self, details)
+    def __init__(self, details):
+        self.paint(details)
 
     def __repr__(self):
         return self.name
+
+    def paint(self, details):
+        for attr, val in details.items():
+            setattr(self, attr, val)
 

@@ -1,5 +1,5 @@
 class Player:
-    '''the U-niverse'''
+    """the U-niverse"""
 
     def __init__(self, name):
         self.name = name

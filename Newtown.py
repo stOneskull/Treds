@@ -165,7 +165,14 @@ def menu():
     sayit = input('mmhmm.. ')
     print('indeed, ' + sayit)
     sh(3)
-    return calc(sayit)
+
+    print('room', u.god.)
+
+    #return calc(sayit)
+
+
+def step():
+    clr()
 
 
 def calc(words):
