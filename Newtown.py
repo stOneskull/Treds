@@ -156,17 +156,22 @@ def options():
 def status():
     clr()
     print(u.name)
+    sh(2)
+    return options
 
 
 def menu():
     print('room', u.god.rooms[u.god.eye])
     print("""
-    0
+    0 - Options
 
     """)
     sh(3)
     sayit = input('mmhmm.. ')
     print('indeed, ' + sayit)
+    sh(2)
+    if sayit == '0':
+        return options
     sh(3)
 
     print('room', u.god.rooms[u.god.eye])
