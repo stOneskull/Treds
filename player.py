@@ -8,4 +8,7 @@ class Player:
         self.book = {}
         self.bag = {'pillow': 1, 'comb': 1, 'book': self.book}
 
-
+    def add_page(self, chapter, page):
+        if chapter not in self.book:
+            self.book[chapter] = []
+        self.book[chapter].append(page)

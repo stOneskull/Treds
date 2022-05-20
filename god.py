@@ -1,19 +1,16 @@
-from room import Room
+from world import World
 
 
 class God:
+    cards = {}
 
     def __init__(self):
         self.eye = 0
-        self.make_world()
+        self.world = World()
 
-    def make_world(self):
-        rooms = {room: None for room in range(40)}
-        rooms[5] = rooms[15] = rooms[25] = rooms[35] = 'hall'
-        rooms[0] = rooms[10] = rooms[20] = rooms[30] = 'corner'
-        for room in rooms:
-            if rooms[room] is None:
-                rooms[room] = Room({'name': 'room'+str(room)})
-        halls = {hall: Room({'name': 'hall'+str(hall)}) for hall in range(4)}
-        self.rooms = rooms
-        self.halls = halls
+    def make_menu(self):
+        pass
+
+    def make_card(self):
+        pass
+

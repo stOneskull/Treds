@@ -3,7 +3,8 @@
 stOneskull"""
 
 
-import pickle, time
+import pickle
+import time
 from random import choice
 
 from player import Player
@@ -48,7 +49,7 @@ def game_over():
 
     print(); sh(1); print(); sh(2)
 
-    return main
+    return start
 
 
 def put(data, filename):
@@ -115,7 +116,7 @@ def load_game():
         except:
             print('starting new game..')
             sh(3)
-            return main('new')
+            return start('new')
 
     u = see
 
@@ -205,7 +206,12 @@ def calc(words):
 
 def new_game():
     global u
-    name = input('your name? ').strip()
+
+    while True:
+        name = input('your name? ').strip()
+        if name:
+            break
+
     u = Player(name)
     u.god = God()
     return intro
@@ -240,13 +246,15 @@ def intro():
     return menu
 
 
-def main(game='load'):
+def start(game=None):
     clr()
 
     while game != 'new':
         hmm = input('\n    1 - New game\n    2 - Load game\n? ')
-        if hmm == '2': return load_game
-        if hmm == '1': game = 'new'
+        if hmm == '1':
+            game = 'new'
+        if hmm == '2':
+            return load_game
 
     return new_game
 
@@ -256,5 +264,6 @@ def wonderwall(egg):
         print(egg)
         egg = egg()
 
+
 if __name__ == '__main__':
-    wonderwall(main)
+    wonderwall(start)
