@@ -2,6 +2,7 @@ class Room:
 
     def __init__(self, details):
         self.paint(details)
+        self.seen = 0
 
     def __repr__(self, name='76'):
         return self.name or name

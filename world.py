@@ -4,8 +4,10 @@ from room import Room
 class World:
     def __init__(self):
         rooms = {room: None for room in range(40)}
-        rooms[5] = rooms[15] = rooms[25] = rooms[35] = 'hall'
-        rooms[0] = rooms[10] = rooms[20] = rooms[30] = 'corner'
+        for i in range(5,40,5):
+            rooms[i] = Room({'name':'hall'+str(i)})
+        for i in range(0,40,10):
+            rooms[i] = Room({'name':'corner'+str(i)})
 
         for room in rooms:
             if rooms[room] is None:
